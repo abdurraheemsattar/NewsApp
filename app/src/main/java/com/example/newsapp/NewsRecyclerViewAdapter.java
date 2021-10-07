@@ -1,6 +1,7 @@
 package com.example.newsapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,8 +42,19 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
         holder.subTitleTV.setText(articles.getDescription());
         Picasso.get().load(articles.getUrlToImage()).into(holder.newsIV);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, NewsDetailActivity.class);
+                intent.putExtra("title", articles.getTitle());
+                intent.putExtra("content", articles.getContent());
+                intent.putExtra("description", articles.getDescription());
+                intent.putExtra("image", articles.getUrlToImage());
+                intent.putExtra("url", articles.getUrl());
+                context.startActivity(intent);
 
-
+            }
+        });
 
     }
 
