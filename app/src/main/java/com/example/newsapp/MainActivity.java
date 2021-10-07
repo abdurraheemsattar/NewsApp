@@ -3,6 +3,7 @@ package com.example.newsapp;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements CategoryRecyclerV
     private RecyclerView newsRecyclerView;
     private RecyclerView categoryRecyclerView;
     private ProgressBar loadingPB;
+    private TextView categoryHeading;
 
     private ArrayList<Articles> articlesArrayList;
     private ArrayList<Categories> categoriesArrayList;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements CategoryRecyclerV
         newsRecyclerView = findViewById(R.id.newsRV);
         categoryRecyclerView = findViewById(R.id.categoriesRV);
         loadingPB = findViewById(R.id.loadingPB);
+        categoryHeading = findViewById(R.id.categoryHeading);
 
         articlesArrayList = new ArrayList<>();
         categoriesArrayList = new ArrayList<>();
@@ -125,7 +128,6 @@ public class MainActivity extends AppCompatActivity implements CategoryRecyclerV
             @Override
             public void onFailure(Call<NewsModel> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "Failed to get news", Toast.LENGTH_SHORT).show();
-
             }
         });
 
@@ -137,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements CategoryRecyclerV
 
         String category = categoriesArrayList.get(position).getCategory();
         getNews(category);
+        categoryHeading.setText(category);
     }
 
 

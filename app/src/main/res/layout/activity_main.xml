@@ -64,7 +64,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="6dp"
-        android:text="Heading"
+        android:text="All"
         android:textColor="@color/white"
         android:textSize="26sp"
         android:textStyle="bold" />
