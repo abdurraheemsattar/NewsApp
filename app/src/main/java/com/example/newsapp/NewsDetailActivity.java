@@ -29,10 +29,12 @@ public class NewsDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news_detail);
 
         title = getIntent().getStringExtra("title");
-        content = getIntent().getStringExtra("content");
+//        content = getIntent().getStringExtra("content");
+        content = getIntent().getStringExtra("url");
         description = getIntent().getStringExtra("description");
         imageURL = getIntent().getStringExtra("image");
-        url = getIntent().getStringExtra("url");
+//        url = getIntent().getStringExtra("url");
+        url = getIntent().getStringExtra("content");
 
 
         titleDetailTV = findViewById(R.id.titleDetailTV);
@@ -50,9 +52,8 @@ public class NewsDetailActivity extends AppCompatActivity {
         readNewsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 //                intent.setData(Uri.parse(url));
-                intent.setData(Uri.parse(url));
                 startActivity(intent);
             }
         });
