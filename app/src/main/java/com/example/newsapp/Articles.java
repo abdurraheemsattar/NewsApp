@@ -4,16 +4,17 @@ public class Articles {
 
     private String title;
     private String description;
-    private String url;
-    private String urlToImage;
     private String content;
+    private String urlToImage;
+    private String url;
 
-    public Articles(String title, String description, String url, String urlToImage, String content) {
+    public Articles(String title, String description, String content, String urlToImage, String url) {
         this.title = title;
         this.description = description;
-        this.url = url;
-        this.urlToImage = urlToImage;
         this.content = content;
+        this.urlToImage = urlToImage;
+        this.url = url;
+
     }
 
     public String getTitle() {
@@ -32,13 +33,15 @@ public class Articles {
         this.description = description;
     }
 
-    public String getUrl() {
-        return url;
+
+    public String getContent() {
+        return content;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setContent(String content) {
+        this.content = content;
     }
+
 
     public String getUrlToImage() {
         return urlToImage;
@@ -48,11 +51,16 @@ public class Articles {
         this.urlToImage = urlToImage;
     }
 
-    public String getContent() {
-        return content;
+
+    public String getUrl() {
+        return url;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setUrl(String url) {
+        this.url = url;
     }
+
+
+
+
 }

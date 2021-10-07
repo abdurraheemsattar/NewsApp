@@ -115,8 +115,8 @@ public class MainActivity extends AppCompatActivity implements CategoryRecyclerV
                 for (int i = 0; i < articles.size(); i++) {
                     articlesArrayList.add(new Articles(
                             articles.get(i).getTitle(),
-                            articles.get(i).getContent(),
                             articles.get(i).getDescription(),
+                            articles.get(i).getContent(),
                             articles.get(i).getUrlToImage(),
                             articles.get(i).getUrl()));
 

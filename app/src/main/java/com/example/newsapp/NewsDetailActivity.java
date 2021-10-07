@@ -29,12 +29,15 @@ public class NewsDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news_detail);
 
         title = getIntent().getStringExtra("title");
-//        content = getIntent().getStringExtra("content");
-        content = getIntent().getStringExtra("url");
         description = getIntent().getStringExtra("description");
+
+        content = getIntent().getStringExtra("content");
+//        content = getIntent().getStringExtra("url");
+
         imageURL = getIntent().getStringExtra("image");
-//        url = getIntent().getStringExtra("url");
-        url = getIntent().getStringExtra("content");
+
+        url = getIntent().getStringExtra("url");
+//        url = getIntent().getStringExtra("content");
 
 
         titleDetailTV = findViewById(R.id.titleDetailTV);
