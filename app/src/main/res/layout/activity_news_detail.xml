@@ -13,66 +13,66 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/blue_shade"
-        app:titleTextColor="@color/white"
-        app:title="News App" />
+        app:title="News App"
+        app:titleTextColor="@color/white" />
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/readNewsBtn"
-        android:layout_below="@id/toolbarID" >
+        android:layout_below="@id/toolbarID">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            
+
             <ImageView
+                android:id="@+id/newsDetailIV"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                android:id="@+id/newsDetailIV"
                 android:layout_margin="3dp"
-                android:padding="3dp"/>
+                android:padding="3dp"
+                android:scaleType="centerCrop" />
 
 
             <TextView
+                android:id="@+id/titleDetailTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Title"
-                android:id="@+id/titleDetailTV"
                 android:layout_below="@id/newsDetailIV"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="20sp"
+                android:layout_margin="4dp"
                 android:padding="4dp"
-                android:layout_margin="4dp" />
+                android:text="Title"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
 
             <TextView
                 android:id="@+id/subDescTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sub Heading"
                 android:layout_below="@id/titleDetailTV"
                 android:layout_margin="4dp"
                 android:padding="4dp"
+                android:text="Sub Heading"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
 
             <TextView
+                android:id="@+id/contentTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/subDescTV"
-                android:id="@+id/contentTV"
-                android:text="Content"
                 android:layout_margin="4dp"
                 android:padding="4dp"
+                android:text="Content"
                 android:textColor="@color/white" />
-            
-            
+
+
         </RelativeLayout>
 
 
@@ -83,13 +83,14 @@
         android:id="@+id/readNewsBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Read Full News"
-        android:background="@color/white"
-        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="30dp"
+        android:background="@color/white"
+        android:text="Read Full News"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
 
 
 

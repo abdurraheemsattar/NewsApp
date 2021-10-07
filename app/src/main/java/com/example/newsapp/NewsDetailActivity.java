@@ -51,6 +51,7 @@ public class NewsDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setData(Uri.parse(url));
                 intent.setData(Uri.parse(url));
                 startActivity(intent);
             }
