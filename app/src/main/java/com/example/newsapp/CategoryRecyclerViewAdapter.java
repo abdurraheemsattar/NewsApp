@@ -1,5 +1,6 @@
 package com.example.newsapp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,11 +40,13 @@ public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRe
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoryRecyclerViewAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         Categories categories = categoriesArrayList.get(position);
         holder.categoryTV.setText(categories.getCategory());
+
         Picasso.get().load(categories.getCategoryImageUrl()).into(holder.categoryIV);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
