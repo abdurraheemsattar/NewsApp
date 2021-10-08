@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsApp">
         <activity
+            android:name=".RoomWordSample"
+            android:exported="true" />
+        <activity
             android:name=".NewsDetailActivity"
             android:exported="true" />
         <activity
