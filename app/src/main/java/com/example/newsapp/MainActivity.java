@@ -1,7 +1,11 @@
 package com.example.newsapp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements CategoryRecyclerV
     private RecyclerView categoryRecyclerView;
     private ProgressBar loadingPB;
     private TextView categoryHeading;
+//    private ImageView searchIV;
+//    private EditText searchEdit;
+
 
     private ArrayList<Articles> articlesArrayList;
     private ArrayList<Categories> categoriesArrayList;
@@ -41,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements CategoryRecyclerV
         categoryRecyclerView = findViewById(R.id.categoriesRV);
         loadingPB = findViewById(R.id.loadingPB);
         categoryHeading = findViewById(R.id.categoryHeading);
+//        searchIV = findViewById(R.id.searchIV);
+//        searchEdit = findViewById(R.id.searchEdit);
 
         articlesArrayList = new ArrayList<>();
         categoriesArrayList = new ArrayList<>();
@@ -57,6 +66,28 @@ public class MainActivity extends AppCompatActivity implements CategoryRecyclerV
         getCategories();
         getNews("All");
         newsRecyclerViewAdapter.notifyDataSetChanged();
+
+
+//        searchIV.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String q = searchEdit.getText().toString();
+//                if (q.isEmpty()){
+//                    Toast.makeText(MainActivity.this, "Search is empty", Toast.LENGTH_SHORT).show();
+//                } else {
+//
+////                    searchEdit.setText(q);
+////                    call thegetNews method
+//
+//                }
+//
+//                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+//
+//            }
+//        });
+
+
 
     }
 
@@ -79,6 +110,13 @@ public class MainActivity extends AppCompatActivity implements CategoryRecyclerV
 
     }
 
+//    private void getKeywordNews(String q){
+//        //        https://newsapi.org/v2/top-headlines?q=nfl&apiKey=2e91dc551a3e4cf7803bde83b913d258
+//        String apiKey = "2e91dc551a3e4cf7803bde83b913d258";
+//        String keyword = "https://newsapi.org/v2/top-headlines?q=" +q+ "&apiKey=" + apiKey;
+//
+//    }
+
     private void getNews(String category) {
         loadingPB.setVisibility(View.VISIBLE);
         articlesArrayList.clear();
@@ -91,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements CategoryRecyclerV
 
         String categoryUrl = "https://newsapi.org/v2/top-headlines?country=" + country + "&category=" + category + "&apiKey=" + apiKey;
         String url = "https://newsapi.org/v2/top-headlines?country=" + country + "&apiKey=" + apiKey;
+
         String BASE_URL = "https://newsapi.org/";
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -100,12 +139,23 @@ public class MainActivity extends AppCompatActivity implements CategoryRecyclerV
         RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
         Call<NewsModel> call;
 
+
         if (category.equals("All")) {
             call = retrofitAPI.getAllNews(url);
         } else {
             call = retrofitAPI.getNewsByCategory(categoryUrl);
         }
 
+
+//        if (category.equals("All") && q.isEmpty()) {
+//            call = retrofitAPI.getAllNews(url);
+//        } else if (category.equals("All") && !q.isEmpty()){
+//            call = retrofitAPI.getAllNews(keyword);
+//        } else {
+//            call = retrofitAPI.getNewsByCategory(categoryUrl);
+//        }
+
+        
         call.enqueue(new Callback<NewsModel>() {
             @Override
             public void onResponse(Call<NewsModel> call, Response<NewsModel> response) {
